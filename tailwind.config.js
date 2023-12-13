@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      borderRadius: {
+        '2.5': '40px'
+      },
       colors: {
         'brown': {
           300: '#4F372F',
@@ -14,8 +17,10 @@ export default {
         'gray': {
           70: '#F8F9FA',
           250: '#eeeeee',
+          280: '#dadada',
           350: '#8A94A4',
           550: '#464646',
+          560: '#5F5F5F',
           850: '#2C2C2C',
           870: '#121212'
         }
@@ -31,12 +36,15 @@ export default {
       },
       height: {
         13: '3.25rem',
+        17: '4.688rem',
+        21: '5.313rem',
         37: '9.375rem'
       },
       inset: {
         13: '3.25rem'
       },
       maxWidth: {
+        '4/5': '80%',
         'xxs': '14.5rem'
       },
       padding: {
@@ -45,6 +53,9 @@ export default {
       },
       margin: {
         '1.3': '0.313rem'
+      },
+      screens: {
+        'max-md': {'max': '767px'},
       }
     },
   },

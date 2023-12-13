@@ -1,0 +1,13 @@
+.food-description {
+  width: 217px;
+
+  @media screen and (min-width: 1024px) {
+    width: 424px;
+  }
+}
+
+.food-image {
+  @media screen and (max-width: 468px) {
+    height: 50px !important;
+  }
+}

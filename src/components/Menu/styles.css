@@ -1,0 +1,28 @@
+.menu-icon {
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.menu-items {
+  @media screen and (max-width: 769px) {
+    position: absolute;
+    right: 0;
+    top: 52px;
+    flex-direction: column;
+    width: 200px !important;
+    background-color: #4F372F;
+  }
+}
+
+.menu-items.toggle-hide {
+  @media screen and (max-width: 769px) {
+    display: none;
+  }
+}
+
+.menu-items div {
+  @media screen and (max-width: 769px) {
+    font-size: .875rem;
+  }
+}

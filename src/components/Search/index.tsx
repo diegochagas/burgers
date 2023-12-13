@@ -7,7 +7,7 @@ export function Search() {
         <Icon type="search" />
       </div>
 
-      <input className="flex items-start text-base pt-3.3 pr-3 pb-2.7 w-full outline-none text-gray-850" type="text" placeholder="Search menu items" />
+      <input className="flex items-start text-base pt-3.3 pr-3 pb-2.7 w-full outline-none text-gray-850 rounded-lg" type="text" placeholder="Search menu items" />
     </div>
   )
 }
