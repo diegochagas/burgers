@@ -35,6 +35,7 @@ export default {
         'bold': 700,
       },
       height: {
+        '4.5': '1.125rem',
         13: '3.25rem',
         17: '4.688rem',
         21: '5.313rem',
@@ -56,6 +57,10 @@ export default {
       },
       screens: {
         'max-md': {'max': '767px'},
+      },
+      width: {
+        '4.5': '1.125rem',
+        17: '4.688rem',
       }
     },
   },

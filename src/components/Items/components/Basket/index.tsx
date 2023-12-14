@@ -1,18 +1,11 @@
-import { Icon } from "../../../Icon";
-
-interface ItemProps {
-  name: string;
-  quantity: number;
-  total: number;
-  description?: string;
-}
-
+import { BasketProduct } from './Product'
+import { priceFormatter } from '../../../../utils'
+import { useContext } from 'react'
+import BasketContext from '../../../../context/basket-context'
 
 export function Basket() {
-  const items: ItemProps[] = [
-    { name: 'Caipirinha', quantity: 1, total: 13 },
-    { name: 'Smash Brooks', quantity: 1, total: 13, description: 'Com 2 carnes' },
-  ]
+  const context = useContext(BasketContext)
+  const { basketProducts, total, subTotal } = context
 
   return (
     <div className="bg-white shadow-lg w-full max-w-xs h-full">
@@ -20,42 +13,21 @@ export function Basket() {
         <h2 className="font-roboto font-medium text-gray-550 text-2xl">Carrinho</h2>
       </div>
 
-      {items.length > 0 ? (
-        <div>
-          {items.map(item => (
-            <div className="my-2 mx-4 font-roboto" key={item.name}>
-              <p className="flex justify-between text-base m-0 p-0 text-gray-870">
-                <span>{item.name}</span>
-                <strong>R${item.total}</strong>
-              </p>
-              {item.description && (
-                <p className="my-1 text-base mx-0 text-gray-560">
-                  {item.description}
-                </p>
-              )}
-              <div className="flex gap-1 p-2">
-                <button className="bg-brown-300 rounded-full h-5 w-5 flex justify-center items-center">
-                  <Icon type="minus" size={20} color="white" />
-                </button>
-                {item.quantity}
-                <button className="bg-brown-300 rounded-full h-5 w-5 flex justify-center items-center">
-                  <Icon type="plus" size={20} color="white" />
-                </button>
-              </div>
-            </div>
-          ))}
+      {basketProducts?.length > 0 ? (
+        <>
+          {basketProducts.map(product => <BasketProduct key={product.id} product={product} />)}
 
           <div className="bg-gray-70 p-4">
             <p className="m-4 flex justify-between text-gray-870 text-base">
               <span>Sub total</span>
-              <strong>R$22.50</strong>  
+              <strong>{priceFormatter(subTotal)}</strong>  
             </p>
 
             <hr className="bg-gray-280" />
             
             <p className="m-4 flex justify-between text-2xl text-gray-870">
               <span>Total:</span>
-              <strong>R$22.50</strong>  
+              <strong>{priceFormatter(total)}</strong>  
             </p>
 
             <button
@@ -64,7 +36,7 @@ export function Basket() {
               Checkout now
             </button>
           </div>
-        </div>
+        </>
       ) : (
         <p className="p-6 font-roboto text-base text-gray-550 font-regular">Seu carrinho está vazio</p>
       )}
